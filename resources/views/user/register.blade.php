@@ -39,7 +39,7 @@
 </h3>
 
 <div>
-    <form action="/user/dang-ki" method="post">
+    <form action="/users/signup" method="post">
         @csrf
         <label for="fname">First Name</label>
         <input type="text" id="fname" name="firstname" placeholder="Your name..">

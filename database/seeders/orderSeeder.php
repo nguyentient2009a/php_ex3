@@ -1,60 +1,48 @@
 <?php
 
-
 namespace Database\Seeders;
 
-
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class OrderSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        $tableName = 'orders';
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        \Illuminate\Support\Facades\DB::table($tableName)->truncate();
 
-    public function run(){
-        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
-        DB::table('orders')->truncate();
-        DB::table('orders')->insert([
+        \Illuminate\Support\Facades\DB::table($tableName)->insert([
             [
-                'createAt' => 06-3-2021,
-                'customersId' => 1
+                'id' => 1,
+                'totalPrice' => 30000,
+                'customerId' => 2,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-10),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-9),
+                'status' => 1
             ],
             [
-                'createAt' => 14-4-2021,
-                'customersId' => 5
+                'id' => 2,
+                'totalPrice' => 60000,
+                'customerId' => 1,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-9),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-6),
+                'status' => 1
             ],
             [
-                'createAt' => 21-5-2021,
-                'customersId' => 1
-            ],
-            [
-                'createAt' => 27-5-2021,
-                'customersId' => 2
-            ],
-            [
-                'createAt' => 02-6-2021,
-                'customersId' => 1
-            ],
-            [
-                'createAt' => 11-6-2021,
-                'customersId' => 3
-            ],
-            [
-                'createAt' => 15-6-2021,
-                'customersId' => 5
-            ],
-            [
-                'createAt' => 23-6-2021,
-                'customersId' => 4
-            ],
-            [
-                'createAt' => 28-6-2021,
-                'customersId' => 2
-            ],
-            [
-                'createAt' => 02-7-2021,
-                'customersId' => 4
-            ],
+                'id' => 3,
+                'totalPrice' => 120000,
+                'customerId' => 3,
+                'created_at' => \Illuminate\Support\Carbon::now()->addDays(-4),
+                'updated_at' => \Illuminate\Support\Carbon::now()->addDays(-2),
+                'status' => 1
+            ]
         ]);
-        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
+        \Illuminate\Support\Facades\DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 }

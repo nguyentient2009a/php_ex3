@@ -1,15 +1,15 @@
 @extends('layout')
 
 @section('title')
-    this is page 2
+    This is page2
 @endsection
 
 @section('header')
-    <div style="color: deepskyblue">
-        this is page 2 header
+    <div style="color: greenyellow">
+        This is page 1 header
     </div>
 @endsection
 
 @section('content')
-    <h1>this is page 2</h1>
+    <h1>This is page2</h1>
 @endsection

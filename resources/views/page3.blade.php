@@ -1,15 +1,15 @@
 @extends('layout')
 
 @section('title')
-    this is page 3
+    This is page3
 @endsection
 
 @section('header')
-    <div style="color: deepskyblue">
-        this is page 3 header
+    <div style="color: yellow">
+        This is page 3 header
     </div>
 @endsection
 
 @section('content')
-    <h1>this is page 3</h1>
+    <h1>This is page3</h1>
 @endsection

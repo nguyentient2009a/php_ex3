@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\CrudController;
 use App\Http\Controllers\LayoutController;
-use App\Http\Controllers\StudentCotroller;
-use App\Http\Controllers\TeacherController;
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,30 +19,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/user/register', [UserController::class, 'register']);
-Route::get('/user/login', [UserController::class, 'login']);
-Route::post('/user/register', [UserController::class, 'registerProcessing']);
-Route::get('/user/getUserDetail', [UserController::class, 'getUserDetail']);
-Route::get('/user/registerCustomer', [UserController::class, 'registerCustomer']);
-Route::post('/user/registerCustomer', [UserController::class, 'showInformation']);
+Route::get('/admin/products', [ProductController::class, 'index']);
+Route::get('/admin/products/create', [ProductController::class, 'create']);
+Route::post('/admin/products', [ProductController::class, 'store']);
 
-Route:: get('/admin/student/create', [StudentCotroller::class,'create']);
-Route:: get('/admin/student/list', [StudentCotroller::class,'getList']);
-Route:: get('/admin/student/detail', [StudentCotroller::class,'getById']);
-Route:: get('/admin/student/update', [StudentCotroller::class,'update']);
-Route:: get('/admin/student/delete', [StudentCotroller::class,'delete']);
-Route:: get('/admin/student/view', [StudentCotroller::class,'view']);
+Route::get('/admin/crud/create', [CrudController::class, 'create']);
+Route::post('/admin/crud', [CrudController::class, 'store']);
 
+Route::get('/welcome', [WelcomeController::class, 'welcome']);
 
+Route::get('/users/login', [UserController::class, 'login']);
+Route::get('/users/detail/{id}', [UserController::class, 'getUserDetail']);
 
+Route::get('/users/signup', [UserController::class, 'signup']);
+Route::post('/users/signup', [UserController::class, 'processSignup']);
 
-Route:: get('/admin/teacher/create', [TeacherController::class,'create']);
-Route:: get('/admin/teacher/list', [TeacherController::class,'getList']);
-Route:: get('/admin/teacher/detail', [TeacherController::class,'getById']);
-Route:: get('/admin/teacher/update', [TeacherController::class,'update']);
-Route:: get('/admin/teacher/delete', [TeacherController::class,'delete']);
-Route:: get('/admin/teacher/view', [TeacherController::class,'view']);
+Route::get('/demo/page1', [LayoutController::class, 'page1']);
+Route::get('/demo/page2', [LayoutController::class, 'page2']);
+Route::get('/demo/page3', [LayoutController::class, 'page3']);
 
-Route::get('/demo.page1', [LayoutController::class, 'page1']);
-Route::get('/demo.page2', [LayoutController::class, 'page2']);
-Route::get('/demo.page3', [LayoutController::class, 'page3']);
+Route::get('/admin/index', [AdminController::class, 'showIndex']);
+Route::get('/admin/list', [AdminController::class, 'showList']);
+Route::get('/admin/form', [AdminController::class, 'showForm']);
